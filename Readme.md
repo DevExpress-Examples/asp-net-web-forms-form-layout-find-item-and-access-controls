@@ -1,22 +1,53 @@
-<!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/128554605/14.1.3%2B)
-[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E4579)
-[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
-<!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
-
-* [Default.aspx](./CS/Default.aspx) (VB: [Default.aspx](./VB/Default.aspx))
-* [Default.aspx.cs](./CS/Default.aspx.cs) (VB: [Default.aspx.vb](./VB/Default.aspx.vb))
-<!-- default file list end -->
-# ASPxFormLayout - How to get an item using FindItemByPath method
+# Form Layout for ASP.NET Web Forms - How to find an item and access nested controls
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/e4579/)**
 <!-- run online end -->
 
+This example demonstrates how to find a layout item by its name and assign a value to a nested control.
 
-<p>This example shows how to access a single item by using <strong><a href="http://documentation.devexpress.com/#AspNet/DevExpressWebASPxFormLayoutLayoutGroupBase_FindItemByPathtopic"><u>LayoutGroupBase.FindItemByPath</u></a></strong> method.<br><br><strong>Updated:</strong><br><br>The<strong> <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebASPxFormLayout_FindItemOrGroupByNametopic">ASPxFormLayout.FindItemByPath</a></strong> method and the <strong><a href="https://documentation.devexpress.com/#AspNet/DevExpressWebLayoutItem_LayoutItemNestedControlContainertopic">LayoutItem.LayoutItemNestedControlContainer</a> </strong>property are obsolete. It is recommended to use the <strong><a href="https://documentation.devexpress.com/#AspNet/DevExpressWebASPxFormLayout_FindItemOrGroupByNametopic">ASPxFormLayout.FindItemOrGroupByName</a> </strong>method and the <strong><a href="https://documentation.devexpress.com/#AspNet/DevExpressWebLayoutItem_Controlstopic">LayoutItem.Controls</a> </strong>property instead.</p>
+![FormLayout Items](findItem.png)
 
-<br/>
+## Overview
 
+Create the [Form Layout](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxFormLayout) control, add item and group objects, and specify their [Name](https://docs.devexpress.com/AspNet/DevExpress.Web.LayoutItemBase.Name) properties.
 
+```aspx
+<dx:LayoutGroup Caption="Group1" Name="Group01">
+    <Items>
+        <dx:LayoutItem Caption="LayoutItem011" Name="LayoutItem011">
+            <LayoutItemNestedControlCollection>
+                <dx:LayoutItemNestedControlContainer ID="layoutContainer1" runat="server">
+                    <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="170px" />
+                </dx:LayoutItemNestedControlContainer>
+            </LayoutItemNestedControlCollection>
+        </dx:LayoutItem>
+        <!-- ... -->
+    </Items>
+</dx:LayoutGroup>
+```
+
+To find a layout item by its name, call the control's [FindItemOrGroupByName](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxFormLayout.FindItemOrGroupByName(System.String)) method and pass the item's `Name` property value as a parameter.
+
+```csharp
+LayoutItemBase baseItem = layout.FindItemOrGroupByName(ASPxComboBox1.Value.ToString()) as LayoutItemBase;
+```
+
+To access a control placed in a layout item, use the [LayoutItem.Controls](https://docs.devexpress.com/AspNet/DevExpress.Web.LayoutItem.Controls) property. The code sample below traverses through the collection of nested controls and assigns new values to the controls.
+
+```csharp
+var layoutItem = (baseItem as LayoutItem);
+foreach (var control in layoutItem.Controls) {
+    ASPxEdit editor = control as ASPxEdit;
+    if (editor != null)
+        editor.Value = DateTime.Now;
+}
+```
+
+## Files to Review
+
+* [Default.aspx](./CS/Default.aspx) (VB: [Default.aspx](./VB/Default.aspx))
+* [Default.aspx.cs](./CS/Default.aspx.cs) (VB: [Default.aspx.vb](./VB/Default.aspx.vb))
+
+## Documentation
+
+* [Item Manipulation](https://docs.devexpress.com/AspNet/14573/components/site-navigation-and-layout/form-layout/concepts/item-manipulation)
