@@ -32,7 +32,7 @@ To find a layout item by its name, call the control's [FindItemOrGroupByName](ht
 LayoutItemBase baseItem = layout.FindItemOrGroupByName(ASPxComboBox1.Value.ToString()) as LayoutItemBase;
 ```
 
-To get a nested control inside a layout item, use the [LayoutItem.Controls](https://docs.devexpress.com/AspNet/DevExpress.Web.LayoutItem.Controls) property. The code sample below traverses through the collection of nested controls and assigns new values to the controls.
+To access a control placed in a layout item, use the [LayoutItem.Controls](https://docs.devexpress.com/AspNet/DevExpress.Web.LayoutItem.Controls) property. The code sample below traverses through the collection of nested controls and assigns new values to the controls.
 
 ```csharp
 var layoutItem = (baseItem as LayoutItem);
