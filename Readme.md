@@ -26,7 +26,7 @@ Create the [Form Layout](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxF
 </dx:LayoutGroup>
 ```
 
-To find a particular layout item by its name, call the control's [FindItemOrGroupByName](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxFormLayout.FindItemOrGroupByName(System.String)) method and pass the item's `Name` property value as a parameter.
+To find a layout item by its name, call the control's [FindItemOrGroupByName](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxFormLayout.FindItemOrGroupByName(System.String)) method and pass the item's `Name` property value as a parameter.
 
 ```csharp
 LayoutItemBase baseItem = layout.FindItemOrGroupByName(ASPxComboBox1.Value.ToString()) as LayoutItemBase;
