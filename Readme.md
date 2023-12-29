@@ -4,9 +4,6 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 # Form Layout for ASP.NET Web Forms - How to find an item and access nested controls
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/128554605/)**
-<!-- run online end -->
 
 This example demonstrates how to find a layout item by its name and assign a value to a nested control.
 
