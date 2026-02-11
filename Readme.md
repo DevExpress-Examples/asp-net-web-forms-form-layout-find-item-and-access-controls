@@ -55,7 +55,7 @@ foreach (var control in layoutItem.Controls) {
 
 * [Item Manipulation](https://docs.devexpress.com/AspNet/14573/components/site-navigation-and-layout/form-layout/concepts/item-manipulation)
 <!-- feedback -->
-## Does This Example Address Your Development Requirements/Objectives?
+## Does this example address your development requirements/objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-web-forms-form-layout-find-item-and-access-controls&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-web-forms-form-layout-find-item-and-access-controls&~~~was_helpful=no)
 
